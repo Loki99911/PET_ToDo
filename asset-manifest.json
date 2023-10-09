@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/PET_ToDo/static/css/main.e6c13ad2.css",
-    "main.js": "/PET_ToDo/static/js/main.12f6e23c.js",
+    "main.css": "/PET_ToDo/static/css/main.866d7c0d.css",
+    "main.js": "/PET_ToDo/static/js/main.d371ae08.js",
     "index.html": "/PET_ToDo/index.html",
-    "main.e6c13ad2.css.map": "/PET_ToDo/static/css/main.e6c13ad2.css.map",
-    "main.12f6e23c.js.map": "/PET_ToDo/static/js/main.12f6e23c.js.map"
+    "main.866d7c0d.css.map": "/PET_ToDo/static/css/main.866d7c0d.css.map",
+    "main.d371ae08.js.map": "/PET_ToDo/static/js/main.d371ae08.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.12f6e23c.js"
+    "static/css/main.866d7c0d.css",
+    "static/js/main.d371ae08.js"
   ]
 }
