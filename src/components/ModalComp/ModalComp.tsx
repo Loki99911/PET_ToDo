@@ -34,27 +34,28 @@ const ModalComp: React.FunctionComponent<IModalCompProps> = ({
 
   return createPortal(
     <ModalBackdrop onClick={backdropClick}>
-      <ModalCard>fdsfsdfsdfds</ModalCard>
-      <form onSubmit={addToLocalStor}>
-        <label>
-          Title:
-          <input
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-          />
-        </label>
-        <label>
-          Discription:
-          <textarea
-            cols={30}
-            rows={10}
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
-        </label>
-        <CustomButton type="submit">Create</CustomButton>
-      </form>
+      <ModalCard>
+        <form onSubmit={addToLocalStor}>
+          <label>
+            Title:
+            <input
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+            />
+          </label>
+          <label>
+            Discription:
+            <textarea
+              cols={30}
+              rows={10}
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+          </label>
+          <CustomButton type="submit">Create</CustomButton>
+        </form>
+      </ModalCard>
     </ModalBackdrop>,
     modalRoot!
   );
