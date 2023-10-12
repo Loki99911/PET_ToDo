@@ -1,18 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
 import ModalComp from "../../components/ModalComp/ModalComp";
+import {
+  ExamplePageBtnWrapper,
+  ExamplePageListWrapper,
+  ExamplePageWrapper,
+} from "./ExamplePage.styled";
+import { ITodoCard } from "../../types/ITodo";
+import TodoCard from "../../components/TodoCard/TodoCard";
 
 export const ExamplePage = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-
+  const [todoList, setTodoList] = useState<ITodoCard[]>([]);
   const toggleModal = () => {
-    setCreateModalOpen((prev) => !prev);    
+    setCreateModalOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const currentLocal = localStorage.getItem("todos");
+    if (currentLocal) {
+      const localArray = JSON.parse(currentLocal);
+      setTodoList(localArray);
+    }
+  }, []);
+
   return (
-    <>
-      <CustomButton onClick={toggleModal}>add card</CustomButton>
-      {createModalOpen && <ModalComp closeModal={toggleModal}/>}
+    <ExamplePageWrapper>
+      <ExamplePageBtnWrapper>
+        <CustomButton onClick={toggleModal}>add card</CustomButton>
+      </ExamplePageBtnWrapper>
+      <ExamplePageListWrapper>
+        {todoList.map((el) => (
+          <TodoCard
+            key={el.id}
+            title={el.title}
+            task={el.task}
+            status={el.status}
+          />
+        ))}
+      </ExamplePageListWrapper>
+      {createModalOpen && (
+        <ModalComp closeModal={toggleModal} todoList={todoList} />
+      )}
       ExamplePage
-    </>
+    </ExamplePageWrapper>
   );
 };

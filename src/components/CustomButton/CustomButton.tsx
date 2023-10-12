@@ -3,13 +3,11 @@ import { StyledBtn } from "./CustomButton.styled";
 export const CustomButton = ({
   children,
   onClick,
+  type="button"
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+    onClick?: () => void;
+    type?: "button" | "submit" | "reset" | undefined;
   }) => {
-  // const asas = () => {
-  //   console.log("fsfsdfsd");
-    
-  // }
-  return <StyledBtn onClick={onClick}>{children}</StyledBtn>;
+  return <StyledBtn onClick={onClick} type={type}>{children}</StyledBtn>;
 };
