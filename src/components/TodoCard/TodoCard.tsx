@@ -1,4 +1,7 @@
 import * as React from "react";
+import { CardDescription, CardTitle, CardWrapper } from "./TodoCard.styled";
+import { CustomButton } from "../CustomButton/CustomButton";
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 interface ITodoCardProps {
   title: string;
@@ -7,12 +10,16 @@ interface ITodoCardProps {
 }
 
 const TodoCard: React.FC<ITodoCardProps> = ({ title, task, status }) => {
+  const deleteTodo = () => {};
   return (
-    <div>
-      <p>{title}</p>
-      <p>{task}</p>
+    <CardWrapper>
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{task}</CardDescription>
       <p>{status}</p>
-    </div>
+      <CustomButton onClick={deleteTodo}>
+        <BsFillTrash3Fill />
+      </CustomButton>
+    </CardWrapper>
   );
 };
 

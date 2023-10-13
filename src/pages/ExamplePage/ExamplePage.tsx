@@ -8,6 +8,7 @@ import {
 } from "./ExamplePage.styled";
 import { ITodoCard } from "../../types/ITodo";
 import TodoCard from "../../components/TodoCard/TodoCard";
+import { BsPlusCircle } from "react-icons/bs";
 
 export const ExamplePage = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -27,7 +28,7 @@ export const ExamplePage = () => {
   return (
     <ExamplePageWrapper>
       <ExamplePageBtnWrapper>
-        <CustomButton onClick={toggleModal}>add card</CustomButton>
+        <CustomButton onClick={toggleModal}><BsPlusCircle/></CustomButton>
       </ExamplePageBtnWrapper>
       <ExamplePageListWrapper>
         {todoList.map((el) => (
