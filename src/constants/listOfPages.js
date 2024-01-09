@@ -1,0 +1,1 @@
+export const listOfPages = ["calendar", "todo", "meetings", "events", "birthdays"];

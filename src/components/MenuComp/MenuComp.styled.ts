@@ -12,7 +12,7 @@ export const MenuWrapper = styled.aside`
   background-color: #d4d4d4;
 `;
 
-export const MenuNav = styled.nav`
+export const MenuNav = styled.nav<{$menuShown: boolean}>`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -21,7 +21,7 @@ export const MenuNav = styled.nav`
   overflow: hidden;
 `;
 
-export const MenuList = styled.ul`
+export const MenuList = styled.ul<{ $menuShown: boolean }>`
   position: absolute;
   gap: 10px;
   left: ${(props) => (props.$menuShown ? "0px" : "-150px")};

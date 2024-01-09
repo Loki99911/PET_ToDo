@@ -1,18 +1,22 @@
-import { Route, Routes } from 'react-router-dom';
-import { ProfilePage } from './pages/ProfilePage/ProfilePage';
-import { ExperiencePage } from './pages/ExperiencePage/ExperiencePage';
-import { ContactPage } from './pages/ContactsPage/ContactsPage';
-import { ExamplePage } from './pages/ExamplePage/ExamplePage';
-import { Layout } from './components/Layout/Layout';
+import { Route, Routes } from "react-router-dom";
+
+import { Layout } from "./components/Layout/Layout";
+import { CalendarPage } from "./pages/CalendarPage/CalendarPage";
+
+import { TodoPage } from "./pages/TodoPage/TodoPage";
+import { MeetingsPage } from "./pages/MeetingsPage/MeetingsPage";
+import { EventsPage } from "./pages/EventsPage/EventsPage";
+import { BirthdaysPage } from "./pages/BirthdaysPage/BirthdaysPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<ProfilePage />} />
-        <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/todo" element={<ExamplePage />} />
-        <Route path="/contacts" element={<ContactPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/meetings" element={<MeetingsPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/birthdays" element={<BirthdaysPage />} />
       </Route>
     </Routes>
   );

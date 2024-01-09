@@ -8,6 +8,8 @@ import {
   MenuNav,
   MenuWrapper,
 } from "./MenuComp.styled";
+import { listOfPages } from "../../constants/listOfPages";
+
 
 export default function MenuComp() {
   const [menuShown, setMenuShown] = useState(false);
@@ -17,24 +19,14 @@ export default function MenuComp() {
   };
 
   return (
-    <MenuWrapper >
+    <MenuWrapper>
       <MenuNav $menuShown={menuShown}>
         <MenuList $menuShown={menuShown}>
-          <MenuItem>
-            <MenuLink to="/calendar">Calendar</MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/todo">Todos</MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/meetings">Meetings</MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/events">Events</MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink to="/birthdays">Birthdays</MenuLink>
-          </MenuItem>
+          {listOfPages.map((el) => (
+            <MenuItem key={el}>
+              <MenuLink to={`/${el}`}>{el.toUpperCase()}</MenuLink>
+            </MenuItem>
+          ))}
         </MenuList>
       </MenuNav>
       <MenuButton onClick={openMenu}>

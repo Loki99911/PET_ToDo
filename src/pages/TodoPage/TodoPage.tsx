@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { CustomButton } from "../../components/CustomButton/CustomButton";
 import ModalComp from "../../components/ModalComp/ModalComp";
 import {
-  ExamplePageBtnWrapper,
-  ExamplePageListWrapper,
-  ExamplePageWrapper,
-} from "./ExamplePage.styled";
+  TodoPageBtnWrapper,
+  TodoPageListWrapper,
+  TodoPageWrapper,
+} from "./TodoPage.styled";
 import { ITodoCard } from "../../types/ITodo";
 import TodoCard from "../../components/TodoCard/TodoCard";
 import { BsPlusCircle } from "react-icons/bs";
 
-export const ExamplePage = () => {
+export const TodoPage = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [todoList, setTodoList] = useState<ITodoCard[]>([]);
   const toggleModal = () => {
@@ -26,11 +26,13 @@ export const ExamplePage = () => {
   }, []);
 
   return (
-    <ExamplePageWrapper>
-      <ExamplePageBtnWrapper>
-        <CustomButton onClick={toggleModal}><BsPlusCircle/></CustomButton>
-      </ExamplePageBtnWrapper>
-      <ExamplePageListWrapper>
+    <TodoPageWrapper>
+      <TodoPageBtnWrapper>
+        <CustomButton onClick={toggleModal}>
+          <BsPlusCircle />
+        </CustomButton>
+      </TodoPageBtnWrapper>
+      <TodoPageListWrapper>
         {todoList.map((el) => (
           <TodoCard
             key={el.id}
@@ -39,11 +41,11 @@ export const ExamplePage = () => {
             status={el.status}
           />
         ))}
-      </ExamplePageListWrapper>
+      </TodoPageListWrapper>
       {createModalOpen && (
         <ModalComp closeModal={toggleModal} todoList={todoList} />
       )}
-      ExamplePage
-    </ExamplePageWrapper>
+      TodoPage
+    </TodoPageWrapper>
   );
 };
